@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+font-family :system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+@apply font-medium text-base
+}
+.body{
+  --primary: #0085FF;
+  --secondary: #a0aec0;
+  --accent: #718096;
+  --background: #0a1818;
+  --main: #102525;
+  --header: #2d3748
+}
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  width: 100vw;
+  height:100vh;
+  /* background-color: rgb(60, 75, 95); */
+  background-color: #102525;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.active-nav{
+ @apply transition-all duration-300
+}
+.slider{
+  @apply bg-[rgb(17,224,141)] fill-[#102525]
+}
+.slider::before{
+  content: '';
+  background-color: transparent;
+  position: absolute;
+  top:-28%;
+  left:8px;
+  width: 15px;
+  height:15px;
+  border-bottom-right-radius: 90%;
+  box-shadow: 3px 2px 0 0 #102525;
+}
+.slider::after{
+  content: '';
+  background-color: transparent;
+  position: absolute;
+  bottom:-29%;
+  left:8px;
+  width: 15px;
+  height:15px;
+  border-top-right-radius: 90%;
+  box-shadow: 3px -2px 0 0 #102525;
+}
+.active-span{
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+ @apply flex translate-x-4 text-sm duration-700  bg-white flex border-[6px] w-[60px] h-[60px] border-[rgb(60,75,90)] text-[#0085FF] shadow-black/50;
+}
+.active-slider0{
+  @apply translate-y-0;
+}
+.active-slider1{
+  @apply translate-y-[83px]
+}
+.active-slider2{
+  @apply translate-y-[167px]
+}
+.active-slider3{
+  @apply translate-y-[251px]
+}
+.svgiconmove{
+  @apply translate-x-[39px] z-40 transition-all duration-500 fill-[white] text-2xl
+}
+.textMove{
+@apply hidden 
+}
+.active-nav::before{
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  position: absolute;
+  z-index: 53;
+  border-left: 30px solid rgb(17,224,141);
+  animation-name: indexmove;
+  animation-duration:600ms;
+  @apply -left-[0.5px]
+
+}
+.active-nav::after{
+  content: '';
+  width: 11px; 
+  height: 60px; 
+  z-index: 54;
+  position: absolute;
+  top:-10px;
+  background-color: #102525;
+  @apply -left-[11px]
+}
+@keyframes indexmove {
+  from {left:-40px;}
+}
+
+
+
+.blob {
+  width: 550px;
+  height: 550px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: blob 18s linear 0s infinite;
+  @apply  bg-[rgb(17,224,141)]
+}
+
+@keyframes blob {
+  0%   {border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;}
+  25%  {border-radius: 70% 30% 32% 68% / 30% 30% 70% 70%;}
+  50%  {border-radius: 50% 50% 32% 68% / 55% 24% 76% 45%;}
+  75%  {border-radius: 28% 72% 57% 43% / 79% 24% 76% 21%;}
+  100% {border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;}
+}
+
+.main{
+  width: calc(100vw - 13rem)
+}
+::-webkit-scrollbar {
+  width: 10px;
+ 
+}
+::-webkit-scrollbar-track {
+  background-color: #193a3a;
+  @apply mr-2
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0a1818;
+  padding-right:4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #11e08d;
+}
+
+.navbar{
+  @apply  fixed h-full w-[70px] text-[white] bg-[#193a3a] py-14 items-center flex flex-col justify-center translate-x-0 -translate-y-1/2 top-1/2
+}
